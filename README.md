@@ -1,4 +1,2 @@
 # Virtual-Arrangement-Environment
-
-
-Using PyBullet virtual environment.
+Tidying up on the desk env. using PyBullet.
