@@ -40,7 +40,7 @@ max_step = 20
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,), (0.5,))])   
 
 
-class sequence_env():# 0.05 + 0.5 * random.random() // # 0.05 + 0.25 * random.random()
+class sequence_env():
     def __init__(self, seed):
         
         seed = seed
