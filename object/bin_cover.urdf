@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+
+<robot name="bin_cover">
+  <link name="bin_up">
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1.0e+8"/>
+      <rolling_friction value="1.0e+8"/>
+      <spinning_friction value="1.0e+8"/> -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>   
+    
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.05" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.135 0.206 0.003"/>
+      </geometry>
+      <material name="blue">
+	      <color rgba=".0 .0 1.0 1.0"/>
+      </material>
+    </visual>
+    
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.135 0.206 0.003"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="0" type="fixed">
+    <parent link="bin_up"/>
+    <child link="bin_left"/>
+    <origin rpy="0.0 0.0 0.0" xyz="-0.066 0. -0.012" />
+  </joint>
+
+  <link name="bin_left">
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1.0e+8"/>
+      <rolling_friction value="1.0e+8"/>
+      <spinning_friction value="1.0e+8"/> -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>   
+    
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.05" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.003 0.206 0.024"/>
+      </geometry>
+      <material name="blue">
+	      <color rgba=".0 .0 1.0 1.0"/>
+      </material>
+    </visual>
+    
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.003 0.206 0.024"/>
+      </geometry>
+    </collision>
+  
+  </link>
+
+  <joint name="1" type="fixed">
+    <parent link="bin_left"/>
+    <child link="bin_back"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.066 0.103 0" />
+  </joint>
+
+  <link name="bin_back">
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1.0e+8"/>
+      <rolling_friction value="1.0e+8"/>
+      <spinning_friction value="1.0e+8"/> -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>   
+    
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.05" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.135 0.003 0.024"/>
+      </geometry>
+      <material name="blue">
+	      <color rgba=".0 .0 1.0 1.0"/>
+      </material>
+    </visual>
+    
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.135 0.003 0.024"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="2" type="fixed">
+    <parent link="bin_back"/>
+    <child link="bin_right"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.066 -0.103 0" />
+  </joint>
+
+  <link name="bin_right">
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1.0e+8"/>
+      <rolling_friction value="1.0e+8"/>
+      <spinning_friction value="1.0e+8"/> -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>   
+    
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.05" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.003 0.206 0.024"/>
+      </geometry>
+      <material name="blue">
+	      <color rgba=".0 .0 1.0 1.0"/>
+      </material>
+    </visual>
+    
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.003 0.206 0.024"/>
+      </geometry>
+    </collision>
+  
+  </link>
+
+  <joint name="3" type="fixed">
+    <parent link="bin_right"/>
+    <child link="bin_front"/>
+    <origin rpy="0.0 0.0 0.0" xyz="-0.066 -0.103 0" />
+  </joint>
+
+  <link name="bin_front">
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1.0e+8"/>
+      <rolling_friction value="1.0e+8"/>
+      <spinning_friction value="1.0e+8"/> -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>   
+    
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.05" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.135 0.003 0.024"/>
+      </geometry>
+      <material name="blue">
+	      <color rgba=".0 .0 1.0 1.0"/>
+      </material>
+    </visual>
+    
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.135 0.003 0.024"/>
+      </geometry>
+    </collision>
+  
+  </link>
+
+</robot>

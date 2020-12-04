@@ -1,0 +1,403 @@
+<?xml version="1.0"?>
+
+<robot name="drawer">
+  <link name="drawer_bottom">
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1.0"/> -->
+      <!-- <rolling_friction value="1.0e+8"/> 
+      <spinning_friction value="1.0e+8"/>  -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>
+    
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.1" />
+      <inertia  ixx="1" ixy="0.0"  ixz="0.0"  iyy="1"  iyz="0.0"  izz="1" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+	<mesh filename="mesh/drawer_bottom.stl" />
+      </geometry>
+      <material name="LightBule">
+        <color rgba="1. 1. 0. 1.0"/>
+      </material>zz
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="mesh/drawer_bottom.stl" />
+      </geometry>
+    </collision>
+
+  </link>
+
+
+
+  <link name="drawer_bottom2">
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1.0"/> -->
+      <!-- <rolling_friction value="1.0e+8"/> 
+      <spinning_friction value="1.0e+8"/> -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.1" />
+      <inertia  ixx="1" ixy="0.0"  ixz="0.0"  iyy="1"  iyz="0.0"  izz="1" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+  <mesh filename="mesh/drawer_bottom.stl" />
+      </geometry>
+      <material name="LightBule">
+        <color rgba="1. 1. 0. 1.0"/>
+      </material>
+    </visual>
+
+    <!-- <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="mesh/drawer_bottom.stl" />
+      </geometry>
+    </collision> -->
+
+  </link>
+
+  <joint name="pile" type="fixed">
+    <parent link="drawer_bottom"/>
+    <child link="drawer_bottom2"/>
+    <origin rpy="0 0 0" xyz="0 0 0.06" />
+  </joint>
+
+  <link name="drawer_cover">
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1.0"/> -->
+      <!-- <rolling_friction value="1.0e+8"/> 
+      <spinning_friction value="1.0e+8"/> -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.1" />
+      <inertia  ixx="1" ixy="0.0"  ixz="0.0"  iyy="1"  iyz="0.0"  izz="1" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.18 0.15 0.01" />
+      </geometry>
+      <!-- <geometry>
+  <mesh filename="mesh/drawer_cover.stl" />
+      </geometry> -->
+      <material name="LightBule">
+        <color rgba="1. 1. 0. 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.18 0.15 0.01" />
+      </geometry>
+      <!-- <geometry>
+        <mesh filename="mesh/drawer_cover.stl" />
+      </geometry> -->
+    </collision>
+
+  </link>
+
+  <joint name="qwe" type="fixed">
+    <parent link="drawer_bottom"/>
+    <child link="drawer_bottom_1"/>
+    <origin rpy="0 0 0" xyz="0 -0.075 0.06" />
+  </joint>
+
+
+  <link name="drawer_bottom_1">
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.18 0.003 0.12" />
+      </geometry>
+
+      <material name="LightBule">
+        <color rgba="1. 1. 0. 1.0"/>
+      </material>
+    </visual>
+
+  </link>
+
+
+  <joint name="qwer" type="fixed">
+    <parent link="drawer_bottom"/>
+    <child link="drawer_bottom_2"/>
+    <origin rpy="0 0 0" xyz="0 0.075 0.06" />
+  </joint>
+
+  <link name="drawer_bottom_2">
+
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.18 0.003 0.12" />
+      </geometry>
+
+      <material name="LightBule">
+        <color rgba="1. 1. 0. 1.0"/>
+      </material>
+    </visual>
+
+  </link>
+
+  <joint name="cover_pile" type="fixed">
+    <parent link="drawer_bottom2"/>
+    <child link="drawer_cover"/>
+    <origin rpy="0 0 0" xyz="0 0 0.06" />
+  </joint>
+
+  <link name="drawer_main">
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1.0"/> -->
+      <!-- <rolling_friction value="1.0e+8"/> 
+      <spinning_friction value="1.0e+8"/> -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.1" />
+      <inertia  ixx="1" ixy="0.0"  ixz="0.0"  iyy="1"  iyz="0.0"  izz="1" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.18 0.12 0.0025" />
+      </geometry>
+      <!-- <geometry>
+  <mesh filename="mesh/drawer_main.stl" />
+      </geometry> -->
+      <material name="LightBule">
+        <color rgba="1. 1. 0. 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0"/>
+      <!-- <geometry>
+        <box size="0.18 0.12 0.0025" />
+      </geometry> -->
+      <geometry>
+        <mesh filename="mesh/drawer_main.stl" />
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="main_pile" type="fixed">
+    <parent link="drawer_bottom"/>
+    <child link="drawer_main"/>
+    <origin rpy="0 0 0" xyz="0 0 0.005" />
+    <axis xyz ="1 0 0" />
+    <limit lower="0" upper="0.12" effort="0.0" velocity="3.15"/>
+  </joint>
+
+
+
+  <link name="drawer_main2">
+    
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1"/> -->
+      <!-- <rolling_friction value="10"/> 
+      <spinning_friction value="10"/> -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>
+
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.1" />
+      <inertia  ixx="1" ixy="0.0"  ixz="0.0"  iyy="1"  iyz="0.0"  izz="1" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.18 0.12 0.0025" />
+      </geometry>
+      <!-- <geometry>
+  <mesh filename="mesh/drawer_main.stl" />
+      </geometry> -->
+      <material name="LightBule">
+        <color rgba="1. 1. 0. 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.18 0.12 0.01" />
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="asd" type="fixed">
+    <parent link="drawer_main2"/>
+    <child link="drawer_main2_1"/>
+    <origin rpy="0 0 0" xyz="0.09 0 0.025" />
+  </joint>
+
+  <link name="drawer_main2_1">
+    
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1"/> -->
+      <!-- <rolling_friction value="1.0e+8"/> 
+      <spinning_friction value="1.0e+8"/> -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>
+
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.1" />
+      <inertia  ixx="1" ixy="0.0"  ixz="0.0"  iyy="1"  iyz="0.0"  izz="1" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.003 0.12 0.05" />
+      </geometry>
+      <material name="LightBule">
+        <color rgba="1. 1. 0. 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.12 0.05" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+
+
+
+  <joint name="asdf" type="fixed">
+    <parent link="drawer_main2"/>
+    <child link="drawer_main2_2"/>
+    <origin rpy="0 0 0" xyz="0. 0.0585 0.025" />
+  </joint>
+
+  <link name="drawer_main2_2">
+    
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1"/> -->
+      <!-- <rolling_friction value="1.0e+8"/> 
+      <spinning_friction value="1.0e+8"/> -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>
+
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.1" />
+      <inertia  ixx="1" ixy="0.0"  ixz="0.0"  iyy="1"  iyz="0.0"  izz="1" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.18 0.003 0.05" />
+      </geometry>
+      <material name="LightBule">
+        <color rgba="1. 1. 0. 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.18 0.01 0.05" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+
+  <joint name="asdfg" type="fixed">
+    <parent link="drawer_main2"/>
+    <child link="drawer_main2_3"/>
+    <origin rpy="0 0 0" xyz="0. -0.0585 0.025" />
+  </joint>
+
+
+
+  <link name="drawer_main2_3">
+    
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1"/> -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>
+
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.1" />
+      <inertia  ixx="1" ixy="0.0"  ixz="0.0"  iyy="1"  iyz="0.0"  izz="1" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.18 0.003 0.05" />
+      </geometry>
+      <material name="LightBule">
+        <color rgba="1. 1. 0. 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.18 0.01 0.05" />
+      </geometry>
+    </collision>
+  </link>
+
+
+
+  <joint name="main2_pile" type="prismatic">
+    <parent link="drawer_bottom2"/>
+    <child link="drawer_main2"/>
+    <origin rpy="0 0 0" xyz="0 0 0.005" />
+    <axis xyz ="1 0 0" />
+    <limit lower="0" upper="0.12" effort="0.0" velocity="3.15"/>
+  </joint>
+
+
+</robot>

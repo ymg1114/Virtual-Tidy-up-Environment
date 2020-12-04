@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<robot name="tabletop">
+  <link name="base_link">
+
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1.0e+8"/> -->
+      <!-- <rolling_friction value="1.0e+8"/> 
+      <spinning_friction value="1.0e+8"/>  -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>
+
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="mesh/staple.obj" scale="0.0075 0.0075 0.0075"/>
+        <!-- <mesh filename="cup.obj" scale="2.1976 2.1976 2.1976"/> -->
+        <!-- <mesh filename="cup.obj" scale="1.8182 1.8182 1.8182"/> -->
+      </geometry>
+      <material name="tray_material">
+        <color rgba="1 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="cup.obj" scale="2.1976 2.1976 2.1976"/> -->
+        <mesh filename="mesh/staple.obj" scale="0.0075 0.0075 0.0075"/>
+        <!-- <mesh filename="cup.obj" scale="1.8182 1.8182 1.8182"/> -->
+      </geometry>
+    </collision>
+  </link>
+</robot>

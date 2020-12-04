@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<robot name="laptop">
+  <link name="lap_down">
+    
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1.0e+8"/>
+      <rolling_friction value="1.0e+8"/> 
+      <spinning_friction value="1.0e+8"/>  -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>
+    
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.1" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+	      <mesh filename="mesh/pad.dae" />
+      </geometry>
+      <material name="white">
+        <color rgba="1.0 1.0 1.0 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="mesh/pad.dae" />
+      </geometry>
+    </collision>
+
+  </link>
+
+  <joint name="lap_joint" type="continuous">
+    <parent link="lap_down"/>
+    <child link="lap_up"/>
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <link name="lap_up">
+    
+    <contact>
+      <restitution value="1.0e-8" />
+      <!-- <lateral_friction value="1.0e+8"/>
+      <rolling_friction value="1.0e+8"/> 
+      <spinning_friction value="1.0e+8"/>  -->
+      <contact_cfm value="0.00001"/>
+      <contact_erp value="0.2"/>
+    </contact>
+
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.1" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+	      <mesh filename="mesh/monitor.dae" />
+      </geometry>
+      <material name="white">
+	      <color rgba="1.0 1.0 1.0 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+	      <mesh filename="mesh/monitor.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="2" type="fixed">
+    <parent link="lap_up"/>
+    <child link="lap_up_monitor"/>
+    <origin rpy="0 0 0" xyz="0 0.098 0.002" />
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <link name="lap_up_monitor">
+
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+	      <box size="0.2804 0.196 0.002" />
+      </geometry>
+      <material name="white">
+	      <color rgba="1.0 1.0 1.0 1.0"/>
+      </material>
+    </visual>
+
+  </link>
+
+</robot>
